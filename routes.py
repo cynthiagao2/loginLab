@@ -1,10 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 from models import db, User
 from forms import UsersForm
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/usersdb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Leland2020@localhost/usersdb'
 db.init_app(app)
 
 app.secret_key = "e14a-key"
@@ -12,9 +12,6 @@ app.secret_key = "e14a-key"
 @app.route("/")
 def index():
   return render_template("index.html")
-
-if __name__ == "__main__":
-  app.run(debug=True)
 
 @app.route('/add-user', methods=['GET', 'POST'])
 def add_user():
@@ -30,4 +27,6 @@ def add_user():
 			db.session.add(new_user)
 			db.session.commit()
 			return redirect(url_for('index'))
-			
+
+if __name__ == "__main__":
+  app.run(debug=True)
