@@ -1,11 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for
 from models import db, User
 from forms import UsersForm
-from flask_heroku import Heroku
 
 app = Flask(__name__)
 
-# heroku = Heroku(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Leland2020@localhost/usersdb'
 db.init_app(app)
 
