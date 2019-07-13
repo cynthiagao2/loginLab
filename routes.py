@@ -3,12 +3,9 @@ from models import db, User
 from forms import UsersForm
 from flask_heroku import Heroku
 
-# app = Flask(__name__)
-
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Leland2020@localhost/usersdb'
-
 app = Flask(__name__)
-heroku = Heroku(app)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Leland2020@localhost/usersdb'
 db.init_app(app)
 
 app.secret_key = "e14a-key"
