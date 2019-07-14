@@ -6,7 +6,7 @@ from flask_heroku import Heroku
 app = Flask(__name__)
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Leland2020@localhost/usersdb'
-herok = Heroku(app)
+heroku = Heroku(app)
 db.init_app(app)
 
 app.secret_key = "e14a-key"
