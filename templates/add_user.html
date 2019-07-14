@@ -16,11 +16,12 @@
 			{{ form.age.label }}
 			{% if form.age.errors %}
 				{% for error in form.age.errors %}
-				<p class="error-message">{{ error }}</p>
+					<p class="error-message">{{ error }}</p>
 				{% endfor %}
 			{% endif %}
 			{{ form.age(class="form-control") }}
 		</div>
 		{{ form.submit(class="btn-primary") }}
 	</form>
+
 {% endblock %}

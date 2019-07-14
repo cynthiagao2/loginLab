@@ -5,6 +5,7 @@ from wtforms.validators import DataRequired
 class UsersForm(FlaskForm):
 	first_name = StringField('First Name', validators=[DataRequired()])
 	age = IntegerField('Age', validators=[DataRequired()])
+	user_id = IntegerField('User ID', validators=[DataRequired()])
 	submit = SubmitField('Enter')
 
 	

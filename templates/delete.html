@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+		<form method="POST" action="/delete">
+		{{ form.hidden_tag() }}
+		<div class="form-group">
+			{{ form.user_id.label }}
+			{% if form.user_id.errors %}
+				{% for error in form.user_id.errors %}
+					<p class="error-message">{{ error }}</p>
+				{% endfor %}
+			{% endif %}
+			{{ form.user_id }}
+		</div>
+		{{ form.submit(class="btn-primary") }}
+	</form>
+{% endblock %}
