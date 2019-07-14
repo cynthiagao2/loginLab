@@ -7,5 +7,3 @@ class UsersForm(FlaskForm):
 	age = IntegerField('Age', validators=[DataRequired()])
 	user_id = IntegerField('User ID', validators=[DataRequired()])
 	submit = SubmitField('Enter')
-
-	

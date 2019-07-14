@@ -5,7 +5,8 @@ from flask_heroku import Heroku
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Leland2020@localhost/usersdb'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Leland2020@localhost/usersdb'
+heroku = Heroku(app)
 db.init_app(app)
 
 app.secret_key = "e14a-key"
@@ -43,7 +44,8 @@ def delete():
 	else:
 		if form.validate_on_submit():
 			user_id = request.form['user_id']
-			db.session.delete(user_id)
+			deluser = User.query.filter_by(user_id=user_id).one()
+			db.session.delete(deluser)
 			db.session.commit()
 			return redirect(url_for('index'))
 
